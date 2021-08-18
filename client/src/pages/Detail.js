@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
@@ -83,7 +83,7 @@ function Detail() {
   };
 
   return (
-    <>
+    <div>
       {currentProduct && cart ? (
         <div className="container my-1">
           <Link to="/">
@@ -121,7 +121,7 @@ function Detail() {
         loading ? <img src={spinner} alt="loading" /> : null
       }
       <Cart />
-    </>
+    </div>
   );
 };
 

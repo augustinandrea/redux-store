@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { QUERY_USER } from "../utils/queries";
 
 function OrderHistory() {
@@ -13,14 +13,14 @@ function OrderHistory() {
   }
 
   return (
-    <>
+    <div>
       <div className="container my-1">
         <Link to="/">
           ← Back to Products
           </Link>
 
         {user ? (
-          <>
+          <div>
             <h2>Order History for {user.firstName} {user.lastName}</h2>
             {user.orders.map((order) => (
               <div key={order._id} className="my-2">
@@ -43,12 +43,12 @@ function OrderHistory() {
                 </div>
               </div>
             ))}
-          </>
+          </div>
         ) : null}
 
       </div>
 
-    </>)
+    </div>)
 
 };
 
